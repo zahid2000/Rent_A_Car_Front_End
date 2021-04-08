@@ -1,1 +1,13 @@
-<p>car-brand works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Brand</th>
+    </tr>
+
+    <tr *ngFor="let carBrand of carBrands">
+      <td>{{ carBrand.carBrandId }}</td>
+      <td>{{ carBrand.brand }}</td>
+    </tr>
+  </thead>
+</table>

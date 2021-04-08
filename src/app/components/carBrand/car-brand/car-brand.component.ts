@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CarBrand } from 'src/app/models/carBrand';
+import { CarBrandService } from 'src/app/sevices/car-brand.service';
+import { CarService } from 'src/app/sevices/car.service';
+
 
 @Component({
   selector: 'app-car-brand',
@@ -6,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-brand.component.css']
 })
 export class CarBrandComponent implements OnInit {
-
-  constructor() { }
+  carBrands:CarBrand[]=[];
+  constructor(private carBrandService:CarBrandService) { }
 
   ngOnInit(): void {
+    this.getCarBrand();
   }
 
+ getCarBrand(){
+   this.carBrandService.getCarBrand().subscribe(response=>{
+     this.carBrands=response.data;
+   })
+ }
 }

@@ -1,1 +1,14 @@
-<p>car-color works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Color</th>
+      </tr>
+  
+      <tr *ngFor="let carColor of carColors">
+        <td>{{ carColor.carColorId }}</td>
+        <td>{{ carColor.color }}</td>
+      </tr>
+    </thead>
+  </table>
+  
