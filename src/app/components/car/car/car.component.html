@@ -9,6 +9,7 @@
   <label for="filterText" class="form-label">Ürün ara</label>
   <input
     type="text"
+    [(ngModel)]="filterText"
     class="form-control"
     id="filterText"
     placeholder="arama ifadesi giriniz"
@@ -30,12 +31,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let car of carDetails" >
+    <tr *ngFor="let car of carDetails |filterPipe:filterText" >
       <td>{{ car.carId }}</td>
       <td routerLink="/cars/{{ car.carId }}">{{ car.carName }}</td>
       <td>{{ car.brandName }}</td>
       <td>{{ car.colorName }}</td>
-      <td>{{ car.dailyPrice | currency }}</td>
+      <td>{{ car.dailyPrice | currency  }}</td>
       <td>{{ car.modelYear }}</td>
 
       <td><button (click)="addToCart(car)" class="btn btn-success">Kirala</button></td>

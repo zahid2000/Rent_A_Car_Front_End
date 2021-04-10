@@ -3,6 +3,6 @@
     <div class="card-body" style="margin:auto" *ngFor="let carDetail of carDetails">
       <h5 class="card-title" >{{carDetail.carName}}</h5>
       <p class="card-text">{{carDetail.description}}</p>
-      <a href="#" class="btn btn-primary">Kirala</a>
+      <a (click)="addToCart(carDetail)" class="btn btn-primary">Kirala</a>
     </div>
   </div>
