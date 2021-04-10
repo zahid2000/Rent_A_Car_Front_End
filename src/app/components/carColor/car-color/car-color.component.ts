@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { from, Observable } from 'rxjs';
 import { Car } from 'src/app/models/car';
 import { CarColor } from 'src/app/models/carColor';
@@ -26,12 +27,18 @@ export class CarColorComponent implements OnInit {
 
   setCurrentColor(color:CarColor){
     this.currentColor=color;
+    console.log(this.currentColor);
   }
   getCurrentColorClass(color:CarColor){
     if(color==this.currentColor){
-      return "list-group-item active";
+      return "list-group-item bg-info bg-gradient";
     }else{
       return "list-group-item ";
     }
   }
+  role(){
+    console.log(this.currentColor)
+  }
 }
+
+

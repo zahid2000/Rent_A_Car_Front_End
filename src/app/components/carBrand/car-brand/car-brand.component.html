@@ -1,12 +1,36 @@
-<ul class="list-group">
-  <li
-    (click)="setCurrentBrand(brand)"
-    routerLink="/cars/brand/{{brand.carBrandId}}"
-    *ngFor="let brand of carBrands"
-    [class]="getCurrentBrandClass(brand)"
-  >
-    {{ brand.brand }}
-  </li>
-</ul>
 
-<h5 *ngIf="currentBrand">{{ currentBrand.brand }} secdiniz</h5>
+<div class="accordion-item mt-4 mb-3 bg-primary bg-gradient" id="carBrand">
+  <h2 class="accordion-header" id="headingTwo">
+    <button
+    
+      class="accordion-button collapsed bg-info text-white"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseOne"
+      aria-expanded="true"
+      aria-controls="collapseOne"
+      routerLink="/cars"
+    >
+      Brands
+    </button>
+  </h2>
+  <div
+    id="collapseOne"
+    class="accordion-collapse collapse"
+    aria-labelledby="headingTwo"
+    data-bs-parent="#carBrand"
+  >
+    <div class="accordion-body">
+      <ul class="list-group">
+        <li
+        (click)="setCurrentBrand(brand)"
+        routerLink="/cars/brand/{{brand.carBrandId}}"
+        *ngFor="let brand of carBrands"
+        [class]="getCurrentBrandClass(brand)"
+        >
+        {{ brand.brand }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

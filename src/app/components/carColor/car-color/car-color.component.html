@@ -1,17 +1,35 @@
-<table class="table border mt-4">
-  <thead>
-    <tr>
-      <th  routerLink="/cars" >Color</th>
-    </tr>
 
-    <tr
-      (click)="setCurrentColor(color)"
-      routerLink="/cars/color/{{ color.carColorId }}"
-      *ngFor="let color of carColors"
-      [class]="getCurrentColorClass(color)"
+<div class="accordion-item mt-4 mb-3 bg-primary bg-gradient" id="accordionexample">
+  <h2 class="accordion-header" id="headingTwo">
+    <button
+    
+      class="accordion-button collapsed bg-info text-white"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseTwo"
+      aria-expanded="true"
+      aria-controls="collapseTwo"
     >
-      <td>{{ color.color }}</td>
-    </tr>
-  </thead>
-</table>
-<h5 *ngIf="currentColor">{{ currentColor.color }} secdiniz</h5>
+      Colors
+    </button>
+  </h2>
+  <div
+    id="collapseTwo"
+    class="accordion-collapse collapse"
+    aria-labelledby="headingTwo"
+    data-bs-parent="#accordionexample"
+  >
+    <div class="accordion-body">
+      <ul class="list-group">
+        <li
+          *ngFor="let color of carColors"
+          (click)="setCurrentColor(color)"
+          [class]="getCurrentColorClass(color)"
+          routerLink="/cars/color/{{color.carColorId}}"
+        >
+          {{ color.color }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
