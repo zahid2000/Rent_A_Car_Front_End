@@ -1,14 +1,17 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Color</th>
-      </tr>
-  
-      <tr *ngFor="let carColor of carColors">
-        <td>{{ carColor.carColorId }}</td>
-        <td>{{ carColor.color }}</td>
-      </tr>
-    </thead>
-  </table>
-  
+<table class="table border mt-4">
+  <thead>
+    <tr>
+      <th  routerLink="/cars" >Color</th>
+    </tr>
+
+    <tr
+      (click)="setCurrentColor(color)"
+      routerLink="/cars/color/{{ color.carColorId }}"
+      *ngFor="let color of carColors"
+      [class]="getCurrentColorClass(color)"
+    >
+      <td>{{ color.color }}</td>
+    </tr>
+  </thead>
+</table>
+<h5 *ngIf="currentColor">{{ currentColor.color }} secdiniz</h5>

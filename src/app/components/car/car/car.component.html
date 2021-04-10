@@ -1,4 +1,13 @@
-<table class="table">
+  
+<div
+*ngIf="dataLoaded == false"
+class="spinner-border text-primary"
+role="status"
+>
+<span class="visually-hidden">Loading...</span>
+</div>
+
+<table *ngIf="dataLoaded==true" class="table">
 <thead>
     <tr>
         <th>CarId</th>
@@ -9,8 +18,8 @@
         <th>ModelYear</th>
       
     </tr>
-
-    <tr *ngFor="let car of carDetails">
+    <tr *ngFor="let car of carDetails"    routerLink="/cars/{{ car.carId}}" >
+      
         <td>{{car.carId}}</td>
         <td>{{car.carName}}</td>
         <td>{{car.brandName}}</td>
